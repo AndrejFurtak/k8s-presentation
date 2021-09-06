@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "api.fullname" . }}
+  labels:
+    app: {{ template "api.fullname" . }}
+    chart: {{ template "chart" . }}
+    draft: {{ .Values.draft | default "draft-app" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  revisionHistoryLimit: 0
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "api.fullname" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "api.fullname" . }}
+        chart: {{ template "chart" . }}
+        draft: {{ .Values.draft | default "draft-app" }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+      annotations:
+        buildID: {{ .Values.buildID | default "" | quote }}
+    spec:
+      containers:
+        - name: {{ template "api.fullname" . }}
+          image: {{ .Values.api.image.name }}
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            {{- with .Values.application }}
+            - name: DOTNET_ENVIRONMENT
+              value: {{ .environment }}
+            {{- range $key, $value := .logLevels }}
+            - name: Logging__LogLevel__{{ title $key }}
+              value: {{ title $value }}
+            {{- end }}
+            {{- end }}
