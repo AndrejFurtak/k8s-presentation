@@ -23,7 +23,7 @@ It is configured based on skaffold.yaml file.
 
 It is used in this service examples for easer image building and helm charts deployment.
 
-There are also few poweshell scripts for wrapping calls to skaffold with passing some default params.
+There are also few powershell scripts for wrapping calls to skaffold with passing some default params.
 
 Scripts:
   - build.ps1
@@ -31,6 +31,9 @@ Scripts:
   - delete.ps1
 
 
-## Calculator service
+## ExampleServices
+
+
+### Calculator service
 
 Example service exposing endpoints for calculation operations.
