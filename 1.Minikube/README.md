@@ -12,6 +12,7 @@ It is required to install some CLIs for manipulation and communication with Mini
 1. Install chocolatey package manager for Windows. https://chocolatey.org/install
 
 2. Run ./installTools.ps1 script.
+
   Will install:
    - minikube cli
    - docker cli
@@ -19,35 +20,49 @@ It is required to install some CLIs for manipulation and communication with Mini
 
 ## Create/Start Minikune VM
 
-Run ./startMinikube.ps1 script. 
+Run ./minikube/startMinikube.ps1 script. 
 
 Will create HyperV Linux VM with running Kubernetes inside Docker.
-Will configure Windows OS Docker CLI environment variables to communicate with Docker inside VM.
+
+WARNING: Will configure Windows OS Docker CLI environment variables to communicate with Docker inside VM.
 
 
-## Stop Minikune VM
+## Stop Minikube VM
 
-Run ./stopMinikube.ps1 script. 
+Run ./minikube/stopMinikube.ps1 script. 
 
 
-## Delete/Destroy Minikune VM
+## Delete/Destroy Minikube VM
 
-Run ./deleteMinikube.ps1 script. 
+Run ./minikube/deleteMinikube.ps1 script. 
+
+
+## Configure local Docker CLI through environment variables
+
+Run ./minikube/configureDocker.ps1 script.
+
+Will set following user environment variables.
+ - DOCKER_HOST
+ - DOCKER_CERT_PATH
+ - DOCKER_TLS_VERIFY
+ - MINIKUBE_ACTIVE_DOCKERD
+
+This variables are used by Docker CLI as default configuration source for Docker Host connection.
 
 
 ## Show Minikube status
 
-Run ./showMinikubeStatus.ps1 script. 
+Run ./minikube/showMinikubeStatus.ps1 script. 
 
 
 ## Show Minikube IP
 
-Run ./showMinikubeIp.ps1 script. 
+Run ./minikube/showMinikubeIp.ps1 script. 
 
 
 ## Start Minikube Kubernetes dashboard
 
-Run ./startDashboard.ps1 script. 
+Run ./minikube/startDashboard.ps1 script. 
 
 
 ## Communication with Kubernetes
