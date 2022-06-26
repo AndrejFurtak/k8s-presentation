@@ -1,6 +1,5 @@
 Param (
-	[string]$p,
-	[string]$n = "kubernetes-examples"
+	[string]$p
 )
 
-kubectl logs $p -n $n
+kubectl logs $p

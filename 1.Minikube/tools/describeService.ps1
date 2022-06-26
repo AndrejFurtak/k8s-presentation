@@ -1,6 +1,5 @@
 Param (
-	[string]$s,
-	[string]$n = "kubernetes-examples"
+	[string]$s
 )
 
-kubectl describe service $s -n $n
+kubectl describe service $s

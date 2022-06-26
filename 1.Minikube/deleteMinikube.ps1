@@ -1,9 +1,10 @@
 #Requires -RunAsAdministrator
 
 Param (
-	[string]$profile = 'kubernetes-examples'
+	[string]$minikubeProfile = 'minikube'
 )
 
 "DELETE MINIKUBE VIRTUAL MACHINE"
+""
 minikube delete `
-	--profile=$profile
+	--profile=$minikubeProfile

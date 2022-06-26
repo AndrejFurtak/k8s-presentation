@@ -1,9 +1,9 @@
 #Requires -RunAsAdministrator
 
 Param (
-	[string]$profile = 'kubernetes-examples'
+	[string]$minikubeProfile = 'minikube'
 )
 
 "STOP MINIKUBE VIRTUAL MACHINE"
 minikube stop `
-	--profile=$profile
+	--profile=$minikubeProfile

@@ -1,6 +1,5 @@
 Param (
-	[string]$p,
-	[string]$n = "kubernetes-examples"
+	[string]$p
 )
 
-kubectl describe pod $p -n $n
+kubectl describe pod $p

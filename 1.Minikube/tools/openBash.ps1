@@ -1,6 +1,5 @@
 Param (
-	[string]$p,
-	[string]$n = "kubernetes-examples"
+	[string]$p
 )
 
-kubectl exec -n $n -i -t $p -- /bin/bash
+kubectl exec -i -t $p -- /bin/bash

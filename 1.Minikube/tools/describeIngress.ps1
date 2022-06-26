@@ -1,6 +1,5 @@
 Param (
-	[string]$i,
-	[string]$n = "kubernetes-examples"
+	[string]$i
 )
 
-kubectl describe ingress $i -n $n
+kubectl describe ingress $i
