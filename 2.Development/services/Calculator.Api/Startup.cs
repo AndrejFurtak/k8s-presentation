@@ -7,7 +7,7 @@ using Microsoft.OpenApi.Models;
 
 namespace Calculator.Api
 {
-    public class Startup
+    public class Startup 
     {
         public Startup(IConfiguration configuration)
         {
@@ -19,9 +19,6 @@ namespace Calculator.Api
         public void ConfigureServices(
             IServiceCollection services)
         {
-
-            services.AddCalculator();
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

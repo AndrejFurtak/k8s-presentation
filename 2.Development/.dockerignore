@@ -14,12 +14,6 @@
 **/azds.yaml
 **/bin
 **/charts
-**/build.ps1
-**/buildAndDeploy.ps1
-**/delete.ps1
-**/migrate.ps1
-**/run.ps1
-**/skaffold.yaml
 **/docker-compose*
 **/Dockerfile*
 **/node_modules
@@ -30,8 +24,4 @@
 LICENSE
 README.md
 
-buildAndDeployMegajobs.ps1
-buildAndDeployMegajobsWithDependencies.ps1
-buildMegajobs.ps1
-deleteMegajobs.ps1
-deleteMegajobsWithDependencies.ps1
+**/build.ps1

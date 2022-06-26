@@ -1,5 +1,4 @@
 ﻿using Calculator.Api.Models.Calculator;
-using Calculator.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -10,14 +9,11 @@ namespace Calculator.Api.Controllers
     public class CalculatorController 
         : ControllerBase
     {
-        private readonly ICalculator _calculator;
         private readonly ILogger _logger;
 
         public CalculatorController(
-            ICalculator calculator,
             ILogger<CalculatorController> logger)
         {
-            _calculator = calculator;
             _logger = logger;
         }
 
@@ -29,7 +25,7 @@ namespace Calculator.Api.Controllers
 
             return Ok(new AddResponse
             {
-                Result = _calculator.Add(model.A, model.B)
+                Result = model.A + model.B
             });
         }
 
@@ -41,7 +37,7 @@ namespace Calculator.Api.Controllers
 
             return Ok(new SubtractResponse
             {
-                Result = _calculator.Subtract(model.A, model.B)
+                Result = model.A - model.B
             });
         }
     }

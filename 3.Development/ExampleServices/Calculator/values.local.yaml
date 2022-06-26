@@ -1,8 +1,0 @@
-api:
-  ingress:
-    enabled: true
-    hostname: calculator-api.kubernetes-examples.test
-
-application:
-  logLevels: 
-    default: debug
