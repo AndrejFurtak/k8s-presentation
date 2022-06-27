@@ -4,10 +4,6 @@ metadata:
   name: {{ template "api.fullname" . }}
   labels:
     app: {{ template "api.fullname" . }}
-    chart: {{ template "chart" . }}
-    draft: {{ .Values.draft | default "draft-app" }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
 spec:
   type: {{ .Values.api.service.type }}
   ports:
@@ -17,4 +13,3 @@ spec:
       name: http
   selector:
     app: {{ template "api.fullname" . }}
-    release: {{ .Release.Name }}

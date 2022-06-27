@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "api.fullname" . }}
+  labels:
+    app: {{ template "api.fullname" . }}
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "api.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "api.fullname" . }}
+    spec:
+      containers:
+        - name: {{ template "api.fullname" . }}
+          image: {{ .Values.api.image.name }}
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            - name: DOTNET_ENVIRONMENT
+              valueFrom: 
+                configMapKeyRef:
+                  name: calculator-api
+                  key: environment
+            - name: Logging__LogLevel__Default
+              valueFrom: 
+                configMapKeyRef:
+                  name: calculator-api
+                  key: logging.level

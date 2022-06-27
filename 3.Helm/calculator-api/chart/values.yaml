@@ -5,7 +5,7 @@ api:
   replicaCount: 1
 
   image:
-    name: docker.io/andrejfurtak/calculator-api:latest
+    name: registry.minikube/calculator-api:latest
     pullPolicy: IfNotPresent
 
   service:
@@ -13,13 +13,11 @@ api:
     port: 30001
 
   ingress:
-    enabled: false
-    annotations: {}
     path: /
     hostname: calculator-api.kubernetes-examples.test
 
 application:
   environment: Development
-  logLevels: 
-    default: warning
+  logging:
+    level: Debug
   

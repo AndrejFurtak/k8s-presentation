@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "api.fullname" . }}
+data:
+  environment: {{ .Values.application.environment | quote }}
+  logging.level: {{ .Values.application.logging.level | quote }}

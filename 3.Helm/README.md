@@ -5,8 +5,7 @@ Contains example of helm chart and how to deploy this chart to Minikube/Kubernet
 
 ## Prerequisities
 
-You have finished previous examples so the Minikube and Docker CLIs are installed 
-and Minikube VM is up and running
+You have finished previous examples so the Minikube k8s is installed 
 and your local development environment is configured.
 
 Run ./installTools.ps1 script.
